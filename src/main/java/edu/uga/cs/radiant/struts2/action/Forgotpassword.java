@@ -125,18 +125,20 @@ System.out.println("Cannot Save Pass in DB");
 
 Properties props = new Properties();
 //props.put("mail.smtp.auth", "true");
-props.put("mail.smtp.user", "radiantweb@gmail.com");
+props.put("mail.smtp.user", "radiantweb@ctegd.uga.edu");
 props.put("mail.smtp.host", "mailgateway.uga.edu");
 //props.put("mail.smtp.port", "587");
 Session session = Session.getDefaultInstance(props);
 try
 {
 Message message = new MimeMessage(session);
-message.setFrom(new InternetAddress("radiantweb@gmail.com"));
+message.setFrom(new InternetAddress("radiantweb@ctegd.uga.edu"));
 message.setRecipients(Message.RecipientType.TO,
 InternetAddress.parse(email));
 message.setSubject("Radiantweb Password");
 message.setText("New password is " +pass);
+message.setText(""
+		+ "");
 Transport.send(message);
 System.out.println("Done");
 } 
