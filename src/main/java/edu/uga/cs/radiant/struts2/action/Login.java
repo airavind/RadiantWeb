@@ -1,3 +1,7 @@
+/* To Login into RadiantWeb
+ * @author Aravind Kalimurthy, Uga
+ */
+
 package edu.uga.cs.radiant.struts2.action;
 import java.security.MessageDigest;
 import java.sql.Connection;

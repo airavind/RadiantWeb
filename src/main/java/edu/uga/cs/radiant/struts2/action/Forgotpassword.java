@@ -1,3 +1,8 @@
+/* Forgot Password, Sends pass to mail
+ * @author: Aravind Kalimurthy, Uga
+ */
+
+
 package edu.uga.cs.radiant.struts2.action;
 import static java.lang.Math.abs;
 import static java.lang.Math.min;

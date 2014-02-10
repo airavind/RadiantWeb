@@ -1,3 +1,8 @@
+/* To Create New User
+ * @author: Aravind Kalimurthy, Uga
+ */
+
+
 package edu.uga.cs.radiant.struts2.action; 
  
 import java.util.Vector; 

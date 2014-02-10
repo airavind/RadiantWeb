@@ -1,3 +1,7 @@
+/* To Reset Password
+ * @author: Aravind Kalimurthy, Uga
+ */
+
 package edu.uga.cs.radiant.struts2.action;
 
 import static java.lang.Math.abs;
@@ -70,7 +74,6 @@ public class ResetPass extends ActionSupport
 					
 		int userId = (Integer) session.get("userID");
 		
-		
 		if(newpass.length() == 0)
 		{
 		errorMesg = "Password should not be Empty!";
@@ -90,8 +93,19 @@ public class ResetPass extends ActionSupport
 		return ERROR;
 		}
 		
+		if(userId <= 2)
+		{
+			System.out.println("True");
+			errorMesg = "Cannot Reset this Password!";
+			loginError.add(errorMesg);
+			vecError.add(errorMesg);
+			messageType = "error";
+			return ERROR;	
+		}
 		
-		 String query = "Select pass from user where ID = ? ;";    
+		
+		
+		String query = "Select pass from user where ID = ? ;";    
 		 
 		 try 
 			{
