@@ -9,39 +9,44 @@
 <link href="styles/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="right">
-            <div id="log">
-                    <div>
-               
-                            <br/>
-                            &nbsp;
+	<div id="right">
+		<div id="log">
+			<div>
 
-   <label for="text1">Welcome <s:property value="#session.accountType" /> <s:property value="#session.username" /> !</label>
-                            <br/>
-                            <font size="+1"><a href= '<s:url action="logout" >
+				<br /> &nbsp; <label for="text1">Welcome <s:property
+						value="#session.accountType" /> <s:property
+						value="#session.username" /> !
+				</label> <br /> <font size="+1">
+				<a
+					href='<s:url action="logout" >
 <s:param name="page">index</s:param>
 </s:url>'>Logout</a></font>
-                          <br/>
-                            <img src="images/fish_inp.png" title="" alt="" style="padding-right: 5px; padding-bottom: 2px;"/><a href="resetPassword.jsp">Change Password</a>
-                            <br/>
-                            
-                           <s:iterator value="loginError" id="ErrorMesg">
-                          <font color="#FF0000"><s:property value="ErrorMesg" /></font>
-                            <br/>
-                          </s:iterator>
+				<br /> <img src="images/fish_inp.png" title="" alt=""
+					style="padding-right: 5px; padding-bottom: 2px;" /><a
+					href="resetPassword.jsp">Change Password</a> <br />
 
-                    </div>
-              </div>
-            </div>
-            <div id="left">
-          <h2>Error Message</h2>
-        </div>
-        <div id="center">
-        <br />
-<s:iterator value="vecError" id="ErrorMesg">
-&nbsp; &nbsp; &nbsp;<b><font size="+1" color="#FF0000"><s:property value="errormessage" /><br/><br/></font></b>
-</s:iterator>
-        </div>
+				<s:iterator value="loginError" id="ErrorMesg">
+					<font color="#FF0000">
+					<s:property value="ErrorMesg" /></font>
+					<br />
+				</s:iterator>
+
+			</div>
+		</div>
+	</div>
+	<div id="left">
+		<h2>Error Message</h2>
+	</div>
+	<div id="center">
+		<br />
+		<s:iterator value="vecError" id="ErrorMesg">
+&nbsp; &nbsp; &nbsp;<b><font size="+1" color="#FF0000">
+				<s:property value="errormessage" />
+				<br />
+				<br />
+			</font></b>
+		</s:iterator>
+	</div>
 </body>
 </html>
 
