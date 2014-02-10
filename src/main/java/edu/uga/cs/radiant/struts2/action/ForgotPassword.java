@@ -10,16 +10,21 @@ import static java.lang.Math.pow;
 import static java.lang.Math.random;
 import static java.lang.Math.round;
 import static org.apache.commons.lang.StringUtils.leftPad;
+
 import java.util.Properties;
 import java.util.Vector;
+
 import com.opensymphony.xwork2.ActionSupport;
+
 import edu.uga.radiant.util.DataBaseConnection;
+
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 //import java.sql.Statement;
 import java.sql.SQLException;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -63,7 +68,12 @@ public class ForgotPassword extends ActionSupport
 			messageType = "error";
 			return ERROR;
 		}
-		if(!(email.contains("@") && ( email.contains(".com") || email.contains(".edu") || email.contains(".org"))))
+
+		String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+		Boolean b = email.matches(emailreg);
+
+		if (b == false) 
 		{
 			errorMesg = "Enter a valid Email address!";
 			loginError.add(errorMesg);
@@ -114,11 +124,11 @@ connection = DriverManager.getConnection("jdbc:hsqldb:file:/home/aravindk/Deskto
 				conn.setAutoCommit(true); 
 				if(action >= 1) 
 				{ 
-					System.out.println("Pass Saved in DataBase"); 
+					//System.out.println("Pass Saved in DataBase"); 
 				} 
 				else 
 				{ 
-					System.out.println("Cannot Save Pass in DB"); 
+					//System.out.println("Cannot Save Pass in DB"); 
 				} 
 			}
 
@@ -136,11 +146,8 @@ connection = DriverManager.getConnection("jdbc:hsqldb:file:/home/aravindk/Deskto
 				message.setRecipients(Message.RecipientType.TO,
 						InternetAddress.parse(email));
 				message.setSubject("Radiantweb Password");
-				message.setText("New password is " +pass);
-				message.setText(""
-						+ "");
+				message.setText("New password is " +pass+  "\n\nThe above email address is not monitored, please do not reply back to this email.");
 				Transport.send(message);
-				System.out.println("Done");
 			} 
 			catch (MessagingException e) 
 			{

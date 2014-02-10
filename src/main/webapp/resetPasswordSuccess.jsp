@@ -14,7 +14,7 @@
 		<div class="col_l">
 			<span> Password has been Changed Successfully . </span><br />
 			<h2>
-				<a href="index.jsp"> Click here to return to home page </a>
+				<a href="index.jsp"> Click here to return to Mypage </a>
 			</h2>
 			<br />
 		</div>

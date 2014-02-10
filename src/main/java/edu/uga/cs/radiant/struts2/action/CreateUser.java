@@ -91,7 +91,12 @@ public class CreateUser extends ActionSupport
 			messageType = "error"; 
 			return ERROR; 
 		} 
-		if(!(email.contains("@") && ( email.contains(".com") || email.contains(".edu") || email.contains(".org"))))
+
+		String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+		Boolean b = email.matches(emailreg);
+
+		if (b == false) 
 		{
 			errorMesg = "Enter a valid Email address!"; 
 			loginError.add(errorMesg); 
